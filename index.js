@@ -21,11 +21,11 @@ const createEvent = async (auth) => {
     supportsAttachments: true,
     resource: {
       start: {
-        dateTime: "2021-04-10T18:35:00",
+        dateTime: "2021-04-12T17:45:00",
         timeZone: "America/Sao_Paulo",
       },
       end: {
-        dateTime: "2021-04-10T18:45:00",
+        dateTime: "2021-04-12T18:15:00",
         timeZone: "America/Sao_Paulo",
       },
       conferenceData: {
@@ -36,10 +36,10 @@ const createEvent = async (auth) => {
           requestId: "random-string123",
         },
       },
-      summary: "Title of the Event",
-      description: "Some description",
+      summary: "Teste WTP Google meet",
+      description: "teste wtp",
       // Attendees with the same domain of the creator are able to enter the Meet without permission
-      attendees: [{ email: "johndoe@gmail.com" }],
+      attendees: [{ email: "everaldo.junior@wisereducacao.com" }],
       reminders: {
         useDefault: "useDefault",
       },
@@ -61,6 +61,25 @@ const createEvent = async (auth) => {
       console.log(meeting);
     }
   });
+};
+
+const moveEvent = async (auth, eventId) => {
+  const calendar = google.calendar({ version: "v3", auth });
+
+  calendar.events.move(
+    {
+      calendarId: "primary",
+      eventId,
+      destination: "everaldo.junior@wisereducacao.com",
+    },
+    (err, res) => {
+      if (err) return console.log("The API returned an error: " + err);
+      const meeting = res.data;
+      if (meeting) {
+        console.log(meeting);
+      }
+    }
+  );
 };
 
 const readEvents = async (auth) => {
@@ -180,7 +199,9 @@ const readEventById = async (auth, eventId) => {
 };
 
 // createEvent(oAuth2Client);
+// moveEvent(oAuth2Client, "some-id");
 // readEvents(oAuth2Client);
 // updateEvent(oAuth2Client, "some-id");
 // deleteEvent(oAuth2Client, "some-id");
 // readEventById(oAuth2Client, "some-id");
+// horn58l980dmgd2vqdjs1mvtec
