@@ -204,4 +204,3 @@ const readEventById = async (auth, eventId) => {
 // updateEvent(oAuth2Client, "some-id");
 // deleteEvent(oAuth2Client, "some-id");
 // readEventById(oAuth2Client, "some-id");
-// horn58l980dmgd2vqdjs1mvtec
